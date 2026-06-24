@@ -1,0 +1,16 @@
+// Test surface for the `meeting-bot-worker-test` ratchet project (see
+// scripts/check-typescript-errors.ts). Mirrors the cloud-service/mobile `-test`
+// split: the production ./tsconfig.json EXCLUDES tests and pins
+// `types: ["@cloudflare/workers-types"]` (faithful to what `wrangler` bundles —
+// no nodejs_compat, so prod has no node builtins). This config RE-ADMITS the test
+// files and adds "node" for the harness (transcriptWebhook.test.ts uses
+// node:crypto). The `include`/`exclude` are re-declared on purpose to override the
+// base's test exclusion — do not "tidy" them away.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types", "node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

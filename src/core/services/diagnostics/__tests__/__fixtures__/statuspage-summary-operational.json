@@ -1,0 +1,15 @@
+{
+  "page": {
+    "id": "abc123",
+    "name": "Anthropic",
+    "url": "https://status.claude.com",
+    "updated_at": "2026-06-23T15:30:00.000Z"
+  },
+  "status": {
+    "indicator": "none",
+    "description": "All Systems Operational"
+  },
+  "components": [],
+  "incidents": [],
+  "scheduled_maintenances": []
+}

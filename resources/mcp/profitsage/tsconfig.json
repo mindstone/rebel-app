@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": "./src",
+    // `types: ["node"]` so node globals (process/Buffer) resolve. The previous
+    // `typeRoots: ["./node_modules/@types"]` pinned type resolution to this
+    // package's own (absent) node_modules, so node types never loaded and tsc
+    // reported spurious TS2591 — type-checked nowhere meant nobody noticed. Safe
+    // for the standalone build (`npm run build` = tsc, then esbuild bundles the
+    // emitted JS): `types` only affects ambient globals, not emit, and the build
+    // installs local deps first, so this resolves node either way (verified the
+    // standalone tsc build still emits). The only @types present is @types/node,
+    // so the explicit list excludes nothing real.
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build"]
+}

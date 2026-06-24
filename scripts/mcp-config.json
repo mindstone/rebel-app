@@ -1,0 +1,9 @@
+{
+  "bundledMcps": [
+    "discourse",
+    "ibkr",
+    "profitsage"
+  ],
+  "alwaysUnbundled": [],
+  "microsoftDependents": []
+}
